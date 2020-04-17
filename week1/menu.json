@@ -1,0 +1,62 @@
+{
+    "Front End": [
+        {
+            "name": "Node Sampler",
+            "ingredients": ["corn chips", "kim chi", "yogurt"],
+            "description": "fresh made corn chips with house kim chi and house yogurt"
+        },
+        {
+            "name": "C++ Salad",
+            "ingredients": ["greens","cheese", "kim chi", "yogurt"],
+            "description": "fresh organic greens with house kim chi and house yogurt"
+        }
+    ],
+    "Full Stack Sandwich": [
+        {
+            "name": "Html",
+            "ingredients": ["Half an avocado", "tomato", "choice of meat", "lettuce"],
+            "description": "fresh baked sprouted grain bread with half an avocado and your choice of meat"
+        },
+        {
+            "name": "CSS",
+            "ingredients": ["crispy bacon", "spinich",  "special sauce"],
+            "description": "your choice between a bagel or crossant with bacon, spinich, and a house sauce"
+        }
+    ],
+    "Full Stack Subs": [
+        {
+            "name": "JavaScript",
+            "ingredients": ["roast beef", "tomato", "grilled onions", "lettuce"],
+            "description": "delious roast beef on house made rolls"
+        },
+        {
+            "name": "Python",
+            "ingredients": ["breaded eggplant", "cheese",  "pizza sauce"],
+            "description": "eggplant breaded and baked covered with melted cheese with pizza sauce on the side."
+        }
+    ],
+    "Back End": [
+        {
+            "name": "PHP",
+            "ingredients": ["pound cake", "honey", "pecans"],
+            "description": "coconut sweetended pound cake drizzled with honey and sprinkled with pecans"
+        },
+        {
+            "name": "JAVA",
+            "ingredients": ["kona coffee","coconut ice cream", "cacal"],
+            "description": "this amazing frostie flavored with kona coffee, chocolate and sweetned with coconut"
+        }
+    ],
+    "Client": [
+        {
+            "name": "Error",
+            "ingredients": ["carrots", "apples", "ginger", "spinich"],
+            "description": "this healthy green juice is great for you"
+        },
+        {
+            "name": "HTTP",
+            "ingredients": ["apples","coconut water", "blueberries", "strawberries"],
+            "description": "this nutrient packed juice is great for brain health"
+        }
+    ]
+}
