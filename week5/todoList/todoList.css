@@ -1,0 +1,34 @@
+html body{
+    background-color: lightgoldenrodyellow;
+    margin: 2%;
+    padding: 2%;
+
+}
+header{
+    color: blue;
+    font-size: 30px;
+
+}
+h1{
+    background-color: cyan;
+    color: darkviolet;
+}
+ h2{
+    background-color: lightgreen;
+    color: midnightblue; */
+}
+h3{
+    background-color: lightsalmon;
+    color: indigo; 
+
+}
+#todoBox{
+    background-color: mediumpurple;
+    color: maroon;
+    position: relative;
+    /* align-items: center; */
+    margin: 10%;
+    padding: 10%;
+    border: 2px solid black;
+
+}
