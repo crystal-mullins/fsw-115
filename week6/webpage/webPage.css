@@ -1,0 +1,58 @@
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+  
+html, body {
+    background-color: lightgrey;
+}
+
+#starwars{
+    background-color:black;
+    color: whitesmoke;
+    width: 100%; 
+    height: max-content;
+    position: relative;;
+    top: 5px;
+    left: 5px;
+    font-size: 50px;
+}
+h1{
+    color: green;
+    background-color: mistyrose;
+    width: max-content; 
+    height: max-content;
+    position: relative;;
+    top: 5px;
+    left: 200px;
+    font-size: 50px;
+    /* position: relative;
+    align-items: center; 
+    text-align: center;
+     justify-content: center; */
+}
+h2{
+    color: red;
+    background-color: lightskyblue;
+    width: max-content; 
+    height: max-content;
+    position: relative;;
+    top: 5px;
+    left: 100px;
+    font-size: 50px;
+}
+movieList{
+    border: solid black;
+    background-color: floralwhite;
+    color: blue;
+    width: max-content; 
+    height: max-content;
+}

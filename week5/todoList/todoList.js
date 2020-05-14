@@ -53,6 +53,12 @@ function listData(data){
             h1.innerHTML = `<strike>${
                 data[i].title
             }</strike>`
+            h2.innerHTML = `<strike>${
+                data[i].description
+            }</strike>`
+            h3.innerHTML = `<strike>${
+                data[i].price
+            }</strike>`
         }
         const button = document.createElement("button")
         button.textContent = "delete"
@@ -61,7 +67,8 @@ function listData(data){
         button.addEventListener("click", (e) => {
             console.log(e.target)
             axios.delete("https://api.vschool.io/[CrystalMullins]/todo/" + e.target.id)
-            .then(response => console.log(response.data))       .catch(error => console.log(error))
+            .then(response => todo_form.reset())      
+             .catch(error => console.log(error))
         
         })
         
@@ -75,7 +82,8 @@ function listData(data){
         axios.put("https://api.vschool.io/[CrystalMullins]/todo/" + e.currentTarget.classList,{
             completed:(e.currentTarget.id === "true"? false: true)
         })
-            .then(response => console.log(response.data))       .catch(error => console.log(error))
+            .then(response => console.log(response.data)) 
+                  .catch(error => console.log(error))
         })
     }
     }
@@ -106,6 +114,7 @@ todo_form.addEventListener("submit", function(e){
     axios.post("https://api.vschool.io/[CrystalMullins]/todo/", newTodo)
          .then(response => {
          getData()
+         
          location.reload()})
          .catch(error => console.log(error))
          todo_form.title.value = ""
