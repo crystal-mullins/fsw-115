@@ -1,4 +1,4 @@
-
+console.log(Math.random() * 10)
 // var page1 =document.getElementById("page1")
 
 // function page() {
@@ -38,18 +38,22 @@ function getData(){
 
 function listData(data){
     for(let i = 0; i < data.length; i++){
+        const section = document.createElement("section")
+        section.id= data[i]._id
+        document.getElementById("todo_list").appendChild(section)
         const h1 = document.createElement("h1")
         h1.textContent = data[i].title
-        document.getElementById("todo_list").appendChild(h1)
-        h1.id = data[i].completed
-        h1.classList = data[i]._id
+        section.appendChild(h1)
+        // h1.id = data[i].completed
+        section.classList = data[i].completed
         const h2 = document.createElement("h2")
         h2.textContent = data[i].description
-        document.getElementById("todo_list").appendChild(h2)
+        section.appendChild(h2)
         const h3 = document.createElement("h3")
         h3.textContent = data[i].price
-        document.getElementById("todo_list").appendChild(h3)
+        section.appendChild(h3)
         if(data[i].completed){
+            
             h1.innerHTML = `<strike>${
                 data[i].title
             }</strike>`
@@ -67,28 +71,50 @@ function listData(data){
         button.addEventListener("click", (e) => {
             console.log(e.target)
             axios.delete("https://api.vschool.io/[CrystalMullins]/todo/" + e.target.id)
-            .then(response => todo_form.reset())      
+            .then(response => {
+                document.getElementById(e.target.id).remove()
+                e.target.remove()
+            })      
              .catch(error => console.log(error))
         
         })
         
-        h1.addEventListener("click", (e) => {
+        section.addEventListener("click", (e) => {
             console.log(e.currentTarget)
-       
+        // console.log(document.getElementById(e.currentTarget.innerHTML))
         // const updates = {
         //     completed:
         //     Description:"have babies",
         // }
-        axios.put("https://api.vschool.io/[CrystalMullins]/todo/" + e.currentTarget.classList,{
-            completed:(e.currentTarget.id === "true"? false: true)
+        axios.put("https://api.vschool.io/[CrystalMullins]/todo/" + e.currentTarget.id,{
+            completed:(e.currentTarget.className === "true"? false: true)
+            
         })
-            .then(response => console.log(response.data)) 
+            .then(response => { 
+                
+                console.log(response.data)
+            //    document.getElementById(response.data._id) === "true"?
+            document.getElementById(response.data._id).classList = response.data.completed
+            // var array = [];
+            var updatedSection =document.getElementById(response.data._id)
+            // array.push(updatedSection.children[0].textContent)
+            console.log(updatedSection.children.length)
+            for(let i =0; i < updatedSection.children.length; i++){ 
+                response.data.completed? updatedSection.children[i].classList.add("strike"): updatedSection.children[i].classList.add("unstrike")
+
+                !response.data.completed? updatedSection.children[i].classList.remove("strike"): updatedSection.children[i].classList.remove("unstrike")
+               
+            }
+            
+            //    document.getElementById(response.data._id.classList = ) = "true";
+            
+            }) 
                   .catch(error => console.log(error))
         })
     }
-    }
+}
     // function clearList(){
-    //     const el = document.getElementById("todo_list")
+    //     const el = section
     //     while(el.firstChild){
     //         el.removeChild(el.firstChild)
     //     }
@@ -113,9 +139,13 @@ todo_form.addEventListener("submit", function(e){
 
     axios.post("https://api.vschool.io/[CrystalMullins]/todo/", newTodo)
          .then(response => {
-         getData()
          
-         location.reload()})
+             document.getElementById("todo_list").innerHTML =""
+         
+         getData()
+         todo_form.reset()
+        //  location.reload()
+    })
          .catch(error => console.log(error))
          todo_form.title.value = ""
 })
