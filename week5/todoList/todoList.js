@@ -1,4 +1,4 @@
-console.log(Math.random() * 10)
+// console.log(Math.random() * 10)
 // var page1 =document.getElementById("page1")
 
 // function page() {
@@ -72,12 +72,54 @@ function listData(data){
             console.log(e.target)
             axios.delete("https://api.vschool.io/[CrystalMullins]/todo/" + e.target.id)
             .then(response => {
+
                 document.getElementById(e.target.id).remove()
-                e.target.remove()
+
+                const buttons = document.getElementsByTagName("button")
+                // console.log(buttons)
+                for(var i = 0; i < buttons.length; i++)
+                {
+                    if(buttons[i].id === e.target.id && buttons[i].textContent === "Update")
+                    {
+                        console.log(buttons[i])
+                        buttons[i].remove()
+                        e.target.remove()
+                    }
+                }
             })      
              .catch(error => console.log(error))
         
         })
+        const button2 = document.createElement("button")
+        button2.textContent = "Update"
+        button2.id = data[i]._id
+        document.getElementById("todo_list").appendChild(button2)
+        button2.addEventListener("click", (e) => {
+            
+            var edits = section.children
+            var inputs = document.getElementById("todoBox").children
+            console.log(inputs)
+            console.log(edits)
+
+            if(inputs[1].value !== ""){edits[0].textContent = inputs[1].value}
+            if(inputs[3].value !== ""){edits[1].textContent = inputs[3].value}
+            if(inputs[5].value !== ""){edits[2].textContent = inputs[5].value}
+            
+          for (var i = 0; i < 6; i++) {if(inputs[i+2].value !== ""){ var updates =  {
+                title:inputs[1].value,
+                description:inputs[3].value,
+                price:inputs[5].value
+            }
+            console.log(updates)
+            axios.put("https://api.vschool.io/[CrystalMullins]/todo/" + e.target.id).inputs[0].value
+            .then(response => {
+                document.getElementById(e.target.id)               
+            })      
+             .catch(error => console.log(error))
+          }}
+        })
+    
+        
         
         section.addEventListener("click", (e) => {
             console.log(e.currentTarget)
@@ -139,7 +181,7 @@ todo_form.addEventListener("submit", function(e){
 
     axios.post("https://api.vschool.io/[CrystalMullins]/todo/", newTodo)
          .then(response => {
-         
+         console.log(response.data)
              document.getElementById("todo_list").innerHTML =""
          
          getData()
