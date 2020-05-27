@@ -111,7 +111,7 @@ function listData(data){
                 price:inputs[5].value
             }
             console.log(updates)
-            axios.put("https://api.vschool.io/[CrystalMullins]/todo/" + e.target.id).inputs[0].value
+            axios.put("https://api.vschool.io/[CrystalMullins]/todo/" + e.target.id, updates)
             .then(response => {
                 document.getElementById(e.target.id)               
             })      
