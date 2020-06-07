@@ -1,0 +1,32 @@
+html,body {
+    background-color: gold;
+    margin: 2%;
+    padding: 2%;
+}
+
+.Heading{
+    color: midnightblue;
+    background-color: fuchsia;
+    font-size: 40px;
+}
+.classname{
+    color:rgb(238, 160, 15);
+    background-color: slateblue;
+    font-size: 40px;
+
+
+}
+.p1{
+    color: purple;
+background-color: lavender;
+}
+
+.p2{
+    color: olive;
+background-color: lightblue;
+}
+
+.p3{
+    color: palevioletred;
+background-color: silver;
+}
